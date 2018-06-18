@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'models.foreignkey.apps.ForeignkeyConfig'
+    'models.foreignkey.apps.ForeignkeyConfig',
     'models.fields.apps.FieldsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
