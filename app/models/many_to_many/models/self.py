@@ -20,4 +20,5 @@ class FacebookUser(models.Model):
         print(f'{self.name} 의 친구목록')
         for friend in self.frieds.all():
             print(f'-{friend.name}')
+        print(f'(총 {len(self.friends.all())})')
 
