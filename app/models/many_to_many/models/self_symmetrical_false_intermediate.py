@@ -24,6 +24,29 @@ class TwitterUser(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def following_relations(self):
+        # 내가 follow하고 있는 Relation들을 리턴
+        # (내가 Relation의 from_user이며, relation_type이 'f'인 경우)
+
+        # return Relation.objects.filter(from_user=self, relation_type='f')
+        return self.relations_by_from_user.filter(relation_type='f')
+
+    @property
+    def follower_relations(self):
+        # 내가 follow하고 있는 Relation들을 리턴
+        # (내가 Relation의 to_user이며, relation_type이 'f'인 경우)
+
+        # return Relation.objects.filter(to_user=self, relation_type='f')
+        return self.relations_by_to_user.filter(relation_type='f')
+
+    @property
+    def block_relations(self):
+        # 내가 block하고 있는 Relation들을 리턴
+        # (내가 Relation의 from_user이며, relation_type이 'b'인 경우)
+        # return Relation.objects.filter(from_user=self, relation_type='b')
+        return self.relations_by_from_user.filter(relation_type='b')
+
 
 class Relation(models.Model):
     """
@@ -63,4 +86,3 @@ class Relation(models.Model):
             self.to_user.name,
             self.get_relation_type_display(),
         )
-    # from 이한영이며, relation_type이 'f'인 QuerySet을 가져와본다.
