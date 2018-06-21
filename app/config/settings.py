@@ -31,12 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'weblog.apps.WeblogConfig',
     'models.foreignkey.apps.ForeignkeyConfig',
     'models.fields.apps.FieldsConfig',
     'models.many_to_many.apps.ManyToManyConfig',
     'inheritance.abstract_base_classes.apps.AbstractBaseClassesConfig',
     'inheritance.multi_table.apps.MultiTableConfig',
     'inheritance.proxy.apps.ProxyConfig',
+
+    'django_extensions',
 
     'django.contrib.admin',
     'django.contrib.auth',
